@@ -14,7 +14,7 @@ def generate_formula(vars, depth):
         return random_atom(vars)
 
     if random.random() < 0.2:
-        return random_atom(vars)
+        return andom_atom(vars)
 
     left = generate_formula(vars, depth - 1)
     right = generate_formula(vars, depth - 1)

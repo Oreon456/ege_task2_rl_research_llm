@@ -11,7 +11,7 @@ from envs.solver import LogicSolver
 def verify_file(filename):
     path = os.path.join("datasets", filename)
     if not os.path.exists(path):
-        print(f"❌ Файл {filename} не найден.")
+        print(f"{filename} не найден.")
         return
 
     print(f"\n проверка: {filename}")

@@ -6,10 +6,14 @@ import re
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 
-PROJECT_ROOT = "/ege_task2_rl"
-BASE_MODEL_PATH = "/ege_task2_rl/models/qwen_model"
-FINETUNED_PATH = "/ege_task2_rl/scripts/models/qwen-ege-logic-final"
-DATASET_PATH = "/ege_task2_rl/scripts/datasets/test_medium.jsonl"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+sys.path.append(PROJECT_ROOT)
+
+# --- пути ---
+BASE_MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "qwen_model")
+FINETUNED_PATH = os.path.join(SCRIPT_DIR, "models", "qwen-ege-logic-final")
+DATASET_PATH = os.path.join(SCRIPT_DIR, "datasets", "test_medium.jsonl")
 
 device = torch.device("mps")
 
@@ -49,7 +53,7 @@ def main():
     print("\n" + "=" * 60)
     print("задача из датасета:")
     print(sample_task['question'])
-    print(f'правильный ответ: {sample_task['answer']}')
+    print(f"правильный ответ: {sample_task['answer']}")
     print("=" * 60)
 
 
@@ -61,7 +65,7 @@ def main():
 
     # накладываем GRPO адаптер
     print("\n" + "-" * 30)
-    print("🧠 Накладываю RL-адаптер (LoRA)...")
+    print("накладываю RL-адаптер (LoRA)...")
     rl_model = PeftModel.from_pretrained(base_model, FINETUNED_PATH).to(device)
     print("-" * 30)
 
