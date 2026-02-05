@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+transformers
+trl
+peft
+accelerate
+datasets
+tqdm
+matplotlib
+numpy
+re

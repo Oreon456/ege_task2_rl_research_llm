@@ -1,0 +1,12 @@
+models/
+*/models/
+*checkpoint*/
+*.safetensors
+*.pt
+*.pth
+*.bin
+.venv/
+venv/
+.idea/
+__pycache__/
+.DS_Store
