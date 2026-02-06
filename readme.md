@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 3. **Оценка базовой модели (Baseline)**
    ```bash
-   python scripts/evaluate_baseline.py
+   python scripts/baseline_eval.py
    ```
 
 4. **Запуск обучения с использованием GRPO**
@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 6. **Сравнительный анализ результатов**
    ```bash
-   python scripts/final_comparison.py
+   python scripts/evaluate_final.py
    ```
 
 ## Важные детали реализации
